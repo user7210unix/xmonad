@@ -1,0 +1,139 @@
+* {
+    bg:           #1a1a1a;
+    bg-alt:       #242424;
+    bg-hover:     #2e2e2e;
+    border-col:   #3a3a3a;
+    fg:           #c8c8c8;
+    fg-dim:       #606060;
+    accent:       #5f87af;
+    accent2:      #87af5f;
+    urgent:       #af5f5f;
+
+    background-color: transparent;
+    text-color:       @fg;
+    border-color:     @border-col;
+}
+
+window {
+    width:            520px;
+    transparency:     "real";
+    background-color: @bg;
+    border:           1px;
+    border-color:     @accent;
+    border-radius:    0px;
+    padding:          0px;
+    location:         center;
+    anchor:           center;
+    x-offset:         0;
+    y-offset:         -80px;
+}
+
+mainbox {
+    background-color: @bg;
+    padding:          0px;
+    spacing:          0px;
+    children:         [inputbar, listview, message];
+}
+
+inputbar {
+    background-color: @bg-alt;
+    border:           0px 0px 1px 0px;
+    border-color:     @border-col;
+    padding:          10px 14px;
+    spacing:          8px;
+    children:         [prompt, entry];
+}
+
+prompt {
+    background-color: transparent;
+    text-color:       @accent;
+    font:             "CaskaydiaCove Nerd Font 10";
+    padding:          0px 4px 0px 0px;
+    vertical-align:   0.5;
+}
+
+entry {
+    background-color: transparent;
+    text-color:       @fg;
+    font:             "CaskaydiaCove Nerd Font 10";
+    vertical-align:   0.5;
+    placeholder:      "type to filter...";
+    placeholder-color: @fg-dim;
+    cursor:           text;
+}
+
+listview {
+    background-color: @bg;
+    padding:          6px 0px;
+    spacing:          0px;
+    columns:          1;
+    lines:            10;
+    fixed-height:     false;
+    scrollbar:        false;
+}
+
+element {
+    background-color: transparent;
+    text-color:       @fg;
+    padding:          7px 14px;
+    spacing:          8px;
+    border-radius:    0px;
+    orientation:      horizontal;
+    children:         [element-icon, element-text];
+}
+
+element-icon {
+    size:           16px;
+    vertical-align: 0.5;
+}
+
+element-text {
+    background-color: transparent;
+    text-color:       inherit;
+    vertical-align:   0.5;
+    font:             "CaskaydiaCove Nerd Font 10";
+}
+
+element.selected.normal,
+element.selected {
+    background-color: @bg-hover;
+    text-color:       @accent;
+    border:           0px 0px 0px 2px;
+    border-color:     @accent;
+}
+
+element.active  { text-color: @accent2; }
+element.urgent  { text-color: @urgent; }
+
+message {
+    background-color: @bg-alt;
+    border:           1px 0px 0px 0px;
+    border-color:     @border-col;
+    padding:          6px 14px;
+}
+
+textbox {
+    background-color: transparent;
+    text-color:       @fg-dim;
+    font:             "CaskaydiaCove Nerd Font 9";
+}
+
+configuration {
+    modi:                "drun,run,window";
+    font:                "CaskaydiaCove Nerd Font 10";
+    show-icons:          true;
+    icon-theme:          "Papirus-Dark";
+    display-drun:        "Apps";
+    display-run:         "Run";
+    display-window:      "Win";
+    drun-display-format: "{name}";
+    terminal:            "alacritty";
+    kb-cancel:           "Escape";
+    kb-accept-entry:     "Return";
+    kb-row-up:           "Up,Control+k";
+    kb-row-down:         "Down,Control+j";
+    matching:            "fuzzy";
+    case-sensitive:      false;
+    sort:                true;
+    sorting-method:      "fzf";
+}

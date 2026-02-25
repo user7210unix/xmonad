@@ -1,0 +1,33 @@
+Config
+  { font             = "xft:CaskaydiaCove Nerd Font:size=10:antialias=true"
+  , additionalFonts  = []
+  , bgColor          = "#1a1a1a"
+  , fgColor          = "#c8c8c8"
+  , alpha            = 255
+  , position         = TopW L 100
+  , border           = NoBorder
+  , lowerOnStart     = True
+  , hideOnStart      = False
+  , allDesktops      = True
+  , overrideRedirect = True
+  , persistent       = True
+  , template         = " %XMonadLog%  }{ <fc=#606060>|</fc>  <fc=#5f87af>CPU</fc> %cpu%  <fc=#606060>|</fc>  <fc=#87af5f>RAM</fc> %memory%  <fc=#606060>|</fc>  <fc=#af875f>%date%</fc> "
+  , commands =
+      [ Run XMonadLog
+      , Run Cpu
+          [ "-t",  "<total>%"
+          , "-L",  "20"
+          , "-H",  "75"
+          , "--normal", "#87af5f"
+          , "--high",   "#af5f5f"
+          ] 10
+      , Run Memory
+          [ "-t", "<usedratio>%"
+          , "-L", "40"
+          , "-H", "80"
+          , "--normal", "#87af5f"
+          , "--high",   "#af5f5f"
+          ] 10
+      , Run Date "%d/%m/%y  %H:%M" "date" 100
+      ]
+  }
