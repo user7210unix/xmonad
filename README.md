@@ -2,7 +2,6 @@
 
 XMonad configuration targeting a focused, distraction-free coding environment. Dark charcoal palette, dwindle layout, minimal xmobar, fast rofi launcher.
 
-Built for daily driver use — not a demo.
 
 ---
 
